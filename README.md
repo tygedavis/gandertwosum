@@ -19,17 +19,17 @@ POST /addTwoNums
 
 ### TODO
 #### API
-[X] Build express server
+- [X] Build express server
 
-[X] Unit tests
+- [X] Unit tests
 
-[X] Error handling
+- [X] Error handling
 
-[ ] Improve unit tests to close async calls when finished
+- [ ] Improve unit tests to close async calls when finished
 
 #### APP
-[ ] Build front end app with inputs
+- [ ] Build front end app with inputs
 
-[ ] Unit tests
+- [ ] Unit tests
 
-[ ] Error handling
+- [ ] Error handling
