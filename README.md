@@ -1,5 +1,12 @@
 # GanderSum
 
+## About
+GanderSum is a simple sum calculator for two numbers. It is a full stack app.
+
+The front end is built using React and TypeScript. Unit tests are performed using Enzyme.
+
+The back end is built using NodeJS, TypeScript, and Express. Unit tests are performed using Jest.
+
 ## Instructions for local instalation
 * Clone this repository
 * In one terminal, cd into /app and run `npm run start`
@@ -28,8 +35,14 @@ POST /addTwoNums
 - [ ] Improve unit tests to close async calls when finished
 
 #### APP
-- [ ] Build front end app with inputs
+- [X] Build front end app with inputs
+
+- [X] Build the app to be responsive
+
+- [X] App sends request to API to add the numbers
+
+- [X] Error handling
 
 - [ ] Unit tests
 
-- [ ] Error handling
+- [ ] Use less/Sass for styling?
