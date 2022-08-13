@@ -32,14 +32,12 @@ function App() {
             num1: _.toNumber(num1),
             num2: _.toNumber(num2),
         }).then((res) => {
-            if (res.data.answer > 0) {
-                setClasses({
-                    ...classes,
-                    answerClasses: '',
-                    inputClasses: '',
-                    inputErrorClasses: 'hide'
-                })
-            }
+            setClasses({
+                ...classes,
+                answerClasses: '',
+                inputClasses: '',
+                inputErrorClasses: 'hide'
+            })
 
             setAnswer(res.data.answer);
         }).catch((err) => {
