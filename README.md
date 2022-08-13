@@ -3,7 +3,7 @@
 ## About
 GanderSum is a simple sum calculator for two numbers. It is a full stack app.
 
-The front end is built using React and TypeScript. Unit tests are performed using Enzyme.
+The front end is built using React and TypeScript. Unit tests are performed using Jest and Enzyme.
 
 The back end is built using NodeJS, TypeScript, and Express. Unit tests are performed using Jest.
 
