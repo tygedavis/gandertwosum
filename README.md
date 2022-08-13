@@ -19,12 +19,21 @@ The back end is built using NodeJS, TypeScript, and Express. Unit tests are perf
 ------
 
 ### API Documentation
-```
+```javascript
 POST /addTwoNums
 
 {
     num1: Integer
     num2: Integer
+}
+```
+>Note: Both num1 and num2 can be numbers in a string and still work.
+>
+>Example
+```javascript
+{
+   num1: "2", // This will still work
+   num2: 2
 }
 ```
 

@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,12 +14,19 @@ app.post('/addTwoNums', (req, res) => {
     let num1 = null;
     let num2 = null;
     const regex = /[0-9]/;
-    if (_.isString(req.body.num1) && req.body.num1.match(regex)) {
+
+    if (_.isNumber(req.body.num1)) {
+        num1 = req.body.num1;
+    } else if (_.isString(req.body.num1) && req.body.num1.match(regex)) {
         num1 = _.toNumber(req.body.num1);
     }
-    if (_.isString(req.body.num2) && req.body.num2.match(regex)) {
+
+    if (_.isNumber(req.body.num2)) {
+        num2 = req.body.num2;
+    } else if (_.isString(req.body.num2) && req.body.num2.match(regex)) {
         num2 = _.toNumber(req.body.num2);
     }
+
     try {
         res.status(200).send({
             answer: addRequestNums(num1, num2),
