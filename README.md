@@ -49,6 +49,6 @@ POST /addTwoNums
 
 - [X] Error handling
 
-- [ ] Unit tests (In progress)
+- [ ] Unit tests
 
 - [ ] ~~Use less/Sass for styling~~ (Not going to do)
