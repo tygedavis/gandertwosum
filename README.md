@@ -7,12 +7,15 @@ The front end is built using React and TypeScript. Unit tests are performed usin
 
 The back end is built using NodeJS, TypeScript, and Express. Unit tests are performed using Jest.
 
+------
+
 ## Instructions for local instalation
 * Clone this repository
 * In one terminal, cd into /app and run `npm run start`
 * In another terminal, cd into /api and run `npm run serve`
 * Add all the numbers you want
 
+------
 
 ### API Documentation
 ```
@@ -23,6 +26,8 @@ POST /addTwoNums
     num2: Integer
 }
 ```
+
+------
 
 ### TODO
 #### API

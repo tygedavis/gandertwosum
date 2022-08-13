@@ -63,6 +63,7 @@ function App() {
                     name='num1'
                     className={classes.inputClasses}
                     onChange={updateValue}
+                    id='n1'
                 />
                 <p className={classes.inputErrorClasses}>{errorMessage}</p>
                 <input
@@ -72,6 +73,7 @@ function App() {
                     name='num2'
                     className={classes.inputClasses}
                     onChange={updateValue}
+                    id='n2'
                 />
                 <p className={classes.inputErrorClasses}>{errorMessage}</p>
                 <button
