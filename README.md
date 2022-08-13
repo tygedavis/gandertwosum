@@ -12,6 +12,7 @@ The back end is built using NodeJS, TypeScript, and Express. Unit tests are perf
 ## Instructions for local instalation
 * Clone this repository
 * In one terminal, cd into /app and run `npm run start`
+    * App will be available at http://localhost:3000/
 * In another terminal, cd into /api and run `npm run serve`
 * Add all the numbers you want
 
