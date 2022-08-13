@@ -1,14 +1,29 @@
-const _ = require('lodash');
+const { isNull, isEmpty, isNumber } = require('lodash');
+const { MUST_BE_NUMBER_ERROR, GENERIC_ERROR, } = require('../messages');
 function addTwoNumbers(num1, num2) {
-    if (!num1 || !num2) {
-        throw new Error('Must provide 2 numbers');
+    if (isNull(num1) || Number.isNaN(num1)) {
+        throw new Error();
     }
-    if (!_.isNumber(num1) || !_.isNumber(num2)) {
-        throw new Error('Inputs must be a number');
+    if (!isNumber(num1) || !isNumber(num2)) {
+        throw new Error();
     }
     return num1 + num2;
 }
+function handleError(num1, num2) {
+    const errorMessages = {};
+    if (isNull(num1) || Number.isNaN(num1)) {
+        errorMessages.num1Error = MUST_BE_NUMBER_ERROR;
+    }
+    if (isNull(num2) || Number.isNaN(num2)) {
+        errorMessages.num2Error = MUST_BE_NUMBER_ERROR;
+    }
+    if (isEmpty(errorMessages)) {
+        errorMessages.genericError = GENERIC_ERROR;
+    }
+    return errorMessages;
+}
 module.exports = {
     addRequestNums: addTwoNumbers,
+    handleErrorMessages: handleError,
 };
 //# sourceMappingURL=addRequestNums.js.map

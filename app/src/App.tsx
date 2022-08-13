@@ -7,12 +7,17 @@ function App() {
     const [num1, setNum1] = React.useState('');
     const [num2, setNum2] = React.useState('');
     const [answer, setAnswer] = React.useState(0);
-    const [classes, setClasses] = React.useState({
-        answerClasses: 'hide',
-        inputClasses: '',
-        inputErrorClasses: 'hide'
+    const [answerClasses, setAnswerClasses] = React.useState('hide');
+    const [num1InputValues, setNum1Values] = React.useState({
+        errorMessage: '',
+        errorMessageClassName: 'hide',
+        classNames: ''
     });
-    const [errorMessage, setErrorMessage] = React.useState('');
+    const [num2InputValues, setNum2Values] = React.useState({
+        errorMessage: '',
+        errorMessageClassName: 'hide',
+        classNames: ''
+    });
 
     function updateValue(e: any) {
         const valueToUpdate = e.target.name;
@@ -29,24 +34,55 @@ function App() {
         const url = 'http://localhost:3001';
 
         axios.post(url + '/addTwoNums', {
-            num1: _.toNumber(num1),
-            num2: _.toNumber(num2),
+            num1,
+            num2,
         }).then((res) => {
-            setClasses({
-                ...classes,
-                answerClasses: '',
-                inputClasses: '',
-                inputErrorClasses: 'hide'
-            })
+            setAnswerClasses('');
+            setNum1Values({
+                errorMessage: '',
+                errorMessageClassName: 'hide',
+                classNames: ''
+            });
+            setNum2Values({
+                errorMessage: '',
+                errorMessageClassName: 'hide',
+                classNames: ''
+            });
 
             setAnswer(res.data.answer);
         }).catch((err) => {
-            setClasses({
-                ...classes,
-                inputClasses: 'inputError',
-                inputErrorClasses: ''
-            });
-            setErrorMessage(err.response.data.error);
+            const errorMessages = err.response.data.error;
+            console.log('errorMessages', errorMessages);
+            if (errorMessages.num1Error) {
+                setNum1Values({
+                    ...num1InputValues,
+                    errorMessage: errorMessages.num1Error,
+                    classNames: 'inputError',
+                    errorMessageClassName: ''
+                })
+            }
+            if (errorMessages.num2Error) {
+                setNum2Values({
+                    ...num1InputValues,
+                    errorMessage: errorMessages.num2Error,
+                    classNames: 'inputError',
+                    errorMessageClassName: ''
+                })
+            }
+            if (errorMessages.genericError) {
+                setNum1Values({
+                    ...num1InputValues,
+                    errorMessage: errorMessages.genericError,
+                    classNames: 'inputError',
+                    errorMessageClassName: ''
+                })
+                setNum2Values({
+                    ...num1InputValues,
+                    errorMessage: errorMessages.genericError,
+                    classNames: 'inputError',
+                    errorMessageClassName: ''
+                })
+            }
         });
     }
 
@@ -59,28 +95,28 @@ function App() {
                     type='number'
                     value={num1}
                     name='num1'
-                    className={classes.inputClasses}
+                    className={num1InputValues.classNames}
                     onChange={updateValue}
                     id='n1'
                 />
-                <p className={classes.inputErrorClasses}>{errorMessage}</p>
+                <p className={num1InputValues.errorMessageClassName}>{num1InputValues.errorMessage}</p>
                 <input
                     placeholder='Number 2'
                     type='number'
                     value={num2}
                     name='num2'
-                    className={classes.inputClasses}
+                    className={num2InputValues.classNames}
                     onChange={updateValue}
                     id='n2'
                 />
-                <p className={classes.inputErrorClasses}>{errorMessage}</p>
+                <p className={num2InputValues.errorMessageClassName}>{num2InputValues.errorMessage}</p>
                 <button
                     onClick={handleSubmit}
                 >Add These Numbers!</button>
             </form>
             <h2 
                 id='answer'
-                className={classes.answerClasses}
+                className={answerClasses}
             >The answer is: {answer}</h2>
         </div>
     );

@@ -38,7 +38,7 @@ POST /addTwoNums
 
 - [X] Error handling
 
-- [ ] Improve unit tests to close async calls when finished
+- [X] Improve unit tests to close async calls when finished
 
 #### APP
 - [X] Build front end app with inputs
@@ -51,4 +51,4 @@ POST /addTwoNums
 
 - [ ] Unit tests (In progress)
 
-- [ ] Use less/Sass for styling?
+- [ ] ~~Use less/Sass for styling~~ (Not going to do)

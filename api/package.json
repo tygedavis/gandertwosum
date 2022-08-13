@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "npx eslint . --ext .ts && npx tsc",
-    "serve": "npx tsc && node dist/app.js",
+    "serve": "npx tsc && node dist/server.js",
     "lint": "npx eslint . --ext .ts"
   },
   "keywords": [],
